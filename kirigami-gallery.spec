@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kirigami-gallery
-Version  : 18.12.3
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.3/src/kirigami-gallery-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/kirigami-gallery-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/kirigami-gallery-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 5
+URL      : https://download.kde.org/stable/applications/19.04.0/src/kirigami-gallery-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/kirigami-gallery-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/kirigami-gallery-19.04.0.tar.xz.sig
 Summary  : Gallery application built using Kirigami
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -51,14 +51,14 @@ license components for the kirigami-gallery package.
 
 
 %prep
-%setup -q -n kirigami-gallery-18.12.3
+%setup -q -n kirigami-gallery-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555334875
+export SOURCE_DATE_EPOCH=1555613584
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -66,7 +66,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555334875
+export SOURCE_DATE_EPOCH=1555613584
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami-gallery
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/LICENSE.LGPL-2
@@ -88,11 +88,13 @@ popd
 /usr/share/locale/ca@valencia/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/cs/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/de/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/el/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/en_GB/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/es/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/fr/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/gl/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/it/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/ja/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/nl/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/nn/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/pl/LC_MESSAGES/kirigamigallery_qt.qm
