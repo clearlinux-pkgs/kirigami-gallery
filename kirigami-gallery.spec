@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kirigami-gallery
-Version  : 19.04.0
-Release  : 6
-URL      : https://download.kde.org/stable/applications/19.04.0/src/kirigami-gallery-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/kirigami-gallery-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/kirigami-gallery-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.1/src/kirigami-gallery-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/kirigami-gallery-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/kirigami-gallery-19.04.1.tar.xz.sig
 Summary  : Gallery application built using Kirigami
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -51,14 +51,14 @@ license components for the kirigami-gallery package.
 
 
 %prep
-%setup -q -n kirigami-gallery-19.04.0
+%setup -q -n kirigami-gallery-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557019219
+export SOURCE_DATE_EPOCH=1557445352
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -73,7 +73,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557019219
+export SOURCE_DATE_EPOCH=1557445352
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami-gallery
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/LICENSE.LGPL-2
