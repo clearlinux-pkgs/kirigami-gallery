@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kirigami-gallery
-Version  : 19.04.3
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.04.3/src/kirigami-gallery-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/kirigami-gallery-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/kirigami-gallery-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.08.0/src/kirigami-gallery-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/kirigami-gallery-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/kirigami-gallery-19.08.0.tar.xz.sig
 Summary  : Gallery application built using Kirigami
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -51,16 +51,17 @@ license components for the kirigami-gallery package.
 
 
 %prep
-%setup -q -n kirigami-gallery-19.04.3
+%setup -q -n kirigami-gallery-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562872628
+export SOURCE_DATE_EPOCH=1565901120
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -74,7 +75,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562872628
+export SOURCE_DATE_EPOCH=1565901120
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami-gallery
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/LICENSE.LGPL-2
@@ -104,6 +105,7 @@ popd
 /usr/share/locale/it/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/ja/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/ko/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/lt/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/nl/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/nn/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/pl/LC_MESSAGES/kirigamigallery_qt.qm
