@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kirigami-gallery
-Version  : 19.08.2
-Release  : 12
-URL      : https://download.kde.org/stable/applications/19.08.2/src/kirigami-gallery-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/kirigami-gallery-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/kirigami-gallery-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 13
+URL      : https://download.kde.org/stable/applications/19.08.3/src/kirigami-gallery-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/kirigami-gallery-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/kirigami-gallery-19.08.3.tar.xz.sig
 Summary  : Gallery application built using Kirigami
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -51,14 +51,14 @@ license components for the kirigami-gallery package.
 
 
 %prep
-%setup -q -n kirigami-gallery-19.08.2
+%setup -q -n kirigami-gallery-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570745555
+export SOURCE_DATE_EPOCH=1573170532
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -75,10 +75,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570745555
+export SOURCE_DATE_EPOCH=1573170532
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami-gallery
-cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/LICENSE.LGPL-2
+cp %{_builddir}/kirigami-gallery-19.08.3/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -111,6 +111,7 @@ popd
 /usr/share/locale/pl/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/pt/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/pt_BR/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/ru/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/sk/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/uk/LC_MESSAGES/kirigamigallery_qt.qm
@@ -120,4 +121,4 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kirigami-gallery/LICENSE.LGPL-2
+/usr/share/package-licenses/kirigami-gallery/ba8966e2473a9969bdcab3dc82274c817cfd98a1
