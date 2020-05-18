@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kirigami-gallery
-Version  : 20.04.0
-Release  : 18
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/kirigami-gallery-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kirigami-gallery-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kirigami-gallery-20.04.0.tar.xz.sig
-Summary  : Gallery application built using Kirigami
+Version  : 20.04.1
+Release  : 19
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/kirigami-gallery-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/kirigami-gallery-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/kirigami-gallery-20.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
 Requires: kirigami-gallery-bin = %{version}-%{release}
@@ -18,6 +18,8 @@ Requires: kirigami-gallery-data = %{version}-%{release}
 Requires: kirigami-gallery-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
+BuildRequires : kirigami2-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -51,35 +53,34 @@ license components for the kirigami-gallery package.
 
 
 %prep
-%setup -q -n kirigami-gallery-20.04.0
-cd %{_builddir}/kirigami-gallery-20.04.0
+%setup -q -n kirigami-gallery-20.04.1
+cd %{_builddir}/kirigami-gallery-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587686420
+export SOURCE_DATE_EPOCH=1589845928
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587686420
+export SOURCE_DATE_EPOCH=1589845928
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami-gallery
-cp %{_builddir}/kirigami-gallery-20.04.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kirigami-gallery-20.04.1/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
