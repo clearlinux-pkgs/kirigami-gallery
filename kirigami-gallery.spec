@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kirigami-gallery
-Version  : 20.04.2
-Release  : 20
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kirigami-gallery-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kirigami-gallery-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kirigami-gallery-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 21
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kirigami-gallery-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kirigami-gallery-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kirigami-gallery-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -20,6 +20,7 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kirigami2-dev
+BuildRequires : kitemmodels-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -53,15 +54,15 @@ license components for the kirigami-gallery package.
 
 
 %prep
-%setup -q -n kirigami-gallery-20.04.2
-cd %{_builddir}/kirigami-gallery-20.04.2
+%setup -q -n kirigami-gallery-20.08.0
+cd %{_builddir}/kirigami-gallery-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591900427
+export SOURCE_DATE_EPOCH=1597784811
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -73,14 +74,14 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591900427
+export SOURCE_DATE_EPOCH=1597784811
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami-gallery
-cp %{_builddir}/kirigami-gallery-20.04.2/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kirigami-gallery-20.08.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami-gallery/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -98,11 +99,14 @@ popd
 /usr/share/locale/ca/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/ca@valencia/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/cs/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/da/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/de/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/el/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/en_GB/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/es/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/et/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/eu/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/fi/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/fr/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/gl/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/it/LC_MESSAGES/kirigamigallery_qt.qm
@@ -116,6 +120,7 @@ popd
 /usr/share/locale/pt_BR/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/ru/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/sk/LC_MESSAGES/kirigamigallery_qt.qm
+/usr/share/locale/sl/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/uk/LC_MESSAGES/kirigamigallery_qt.qm
 /usr/share/locale/zh_CN/LC_MESSAGES/kirigamigallery_qt.qm
